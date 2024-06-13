@@ -1,0 +1,11 @@
+fastapi
+pydantic
+pymongo[srv]
+python-dotenv
+uvicorn
+passlib
+python-jose
+datetime
+bcrypt
+requests
+python-multipart
