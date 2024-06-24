@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Xanh Mono", monospace;
+  letter-spacing: -0.04rem;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --txt-primary-color: #000000;
+  --txt-secondary-color: #676767;
+
+  --utl-primary-color: #8C52FF;
+  --utl-secondary-color: #6A1FFF;
+  --utl-tertiary-color: #D0B9FF;
+
+  --bg-primary-color: #FFFFFF;
+  --bg-secondary-color: #FFFFFFCC;
+}
