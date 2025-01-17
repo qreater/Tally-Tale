@@ -1,6 +1,5 @@
 fastapi
 pydantic
-pymongo[srv]
 python-dotenv
 uvicorn
 passlib
@@ -9,3 +8,7 @@ datetime
 bcrypt
 requests
 python-multipart
+sqlalchemy
+psycopg-binary
+psycopg2
+jwt
