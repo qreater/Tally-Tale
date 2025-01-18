@@ -1,3 +1,10 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
+
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -17,6 +24,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
+
 def get_db():
     db = SessionLocal()
     try:
@@ -27,9 +35,9 @@ def get_db():
     finally:
         db.close()
 
+
 def save_and_refresh(db, obj):
     db.add(obj)
     db.commit()
     db.refresh(obj)
-    return obj        
-
+    return obj

@@ -1,14 +1,22 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
+
+
 from core.schema.auth import RegisterRequest, LoginRequest
 from sqlalchemy.orm import Session
 
 from core.utils.auth import (
-    create_access_token, 
-    check_user_exists, 
-    create_user, 
-    verify_password, 
+    create_access_token,
+    check_user_exists,
+    create_user,
+    verify_password,
     get_password_hash,
     verify_user,
 )
+
 
 def register(db: Session, request: RegisterRequest) -> dict:
     """
@@ -38,6 +46,7 @@ def register(db: Session, request: RegisterRequest) -> dict:
         },
     }
 
+
 def login(db: Session, request: LoginRequest) -> dict:
     """
     Login a user.
@@ -63,4 +72,3 @@ def login(db: Session, request: LoginRequest) -> dict:
             "username": user.username,
         },
     }
- 

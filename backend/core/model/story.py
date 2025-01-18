@@ -1,3 +1,8 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
 
 
 class Story:
@@ -14,7 +19,7 @@ class Story:
         The story's summary
     user_id: int
         The story's author's unique identifier
-    genre: list 
+    genre: list
         The story's genre
     created_at: datetime
         The story's creation date
@@ -28,16 +33,19 @@ class Story:
         The story's chapter number
 
     """
+
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     summary = Column(Text, limit=500)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    genre= List(String, index=True)
+    user_id = Column(Integer, ForeignKey("user.id"))
+    genre = List(String, index=True)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
     tags = List(String, index=True)
-    status = Column(String, index=True, default= "Ongoing")
-    chapter_no = Column(Integer, index=True, default= 0)
+    status = Column(String, index=True, default="Ongoing")
+    chapter_no = Column(Integer, index=True, default=0)
 
     user = relationship("User", back_populates="stories")
-    chapters = relationship("Chapter", back_populates="story", cascade="all, delete-orphan")
+    chapters = relationship(
+        "Chapter", back_populates="story", cascade="all, delete-orphan"
+    )

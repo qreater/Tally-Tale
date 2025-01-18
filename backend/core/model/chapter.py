@@ -1,3 +1,8 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
 
 
 class Chapter:
@@ -21,11 +26,11 @@ class Chapter:
     chapter_no: int
         The chapter's number
     """
-    
+
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     content = Column(String)
-    story_id = Column(Integer, ForeignKey('story.id'))
+    story_id = Column(Integer, ForeignKey("story.id"))
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
     chapter_no = Column(Integer, index=True)
