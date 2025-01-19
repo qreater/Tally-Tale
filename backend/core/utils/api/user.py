@@ -1,3 +1,10 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
+
+
 from sqlalchemy.orm import Session
 
 from core.utils.errors import not_found_error
@@ -31,6 +38,7 @@ def get_user(db: Session, username: str) -> dict:
         },
     }
 
+
 def update_user(db: Session, username: str, request: UserUpdate) -> dict:
     """
     Update a user.
@@ -50,7 +58,7 @@ def update_user(db: Session, username: str, request: UserUpdate) -> dict:
 
     user.description = request.description
     user.avatar_url = request.avatar_url
- 
+
     db.commit()
 
     return {
@@ -61,9 +69,9 @@ def update_user(db: Session, username: str, request: UserUpdate) -> dict:
             "description": user.description,
             "avatar_url": user.avatar_url,
         },
-    }    
-   
-    
+    }
+
+
 def delete_user(db: Session, username: str) -> dict:
     """
     Delete a user.
@@ -85,4 +93,4 @@ def delete_user(db: Session, username: str) -> dict:
 
     return {
         "message": "User deleted successfully",
-    }   
+    }

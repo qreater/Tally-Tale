@@ -1,3 +1,10 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
+
+
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
@@ -23,23 +30,24 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def get_password_hash(password):
     """
     Get the hashed password.
-    
+
     Args:
     password (str) : Plain password.
-    
+
     Returns:
     str : Hashed password.
     """
     return pwd_context.hash(password)
 
+
 def verify_password(plain_password, hashed_password):
     """
     Verify the password with the hashed password.
-    
+
     Args:
     plain_password (str) : Plain password.
     hashed_password (str) : Hashed password.
-    
+
     Returns:
     bool : True if password matches, False otherwise.
     """
@@ -49,10 +57,10 @@ def verify_password(plain_password, hashed_password):
 def create_access_token(data: dict):
     """
     Create the access token.
-    
+
     Args:
     data (dict) : Data to be encoded in the token.
-    
+
     Returns:
     str : Encoded token.
     """
@@ -61,6 +69,7 @@ def create_access_token(data: dict):
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
 
 def decode_access_token(token: str):
     """
@@ -78,7 +87,7 @@ def decode_access_token(token: str):
         return payload
     except jwt.JWTError:
         return None
-    
+
 
 def check_user_exists(db: Session, email: str, username: str):
     """
@@ -95,7 +104,8 @@ def check_user_exists(db: Session, email: str, username: str):
     if user_email is not None:
         raise conflict_error("User")
     if user_username is not None:
-        raise conflict_error("Username")    
+        raise conflict_error("Username")
+
 
 def create_user(db: Session, email: str, password: str, username: str):
     """
@@ -111,12 +121,13 @@ def create_user(db: Session, email: str, password: str, username: str):
     """
 
     hashed_password = get_password_hash(password)
-    
+
     user = User(email=email, password=hashed_password, username=username)
     save_and_refresh(db, user)
 
     return user.id
-    
+
+
 def verify_user(db: Session, username: str, password: str):
     """
     Verify the user.

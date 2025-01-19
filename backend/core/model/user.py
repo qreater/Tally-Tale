@@ -1,8 +1,16 @@
+"""
+ Copyright 2025 @Qreater
+ Licensed under the Apache License, Version 2.0.
+ See: http://www.apache.org/licenses/LICENSE-2.0
+"""
+
+
 from sqlalchemy import Column, String
 from sqlalchemy.dialects.postgresql import UUID
 from uuid import uuid4
 
 from core.utils.database import Base
+
 
 class User(Base):
     """
@@ -23,6 +31,7 @@ class User(Base):
     avatar_url: str
         The user's avatar URL
     """
+
     __tablename__ = "user"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4, index=True)
@@ -31,6 +40,3 @@ class User(Base):
     password = Column(String)
     description = Column(String, default=f"Hi, I'm {username}!")
     avatar_url = Column(String, default="./doc-assets/image.png")
-
-
-

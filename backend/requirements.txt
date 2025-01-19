@@ -12,3 +12,5 @@ sqlalchemy
 psycopg-binary
 psycopg2
 jwt
+black
+pre-commit
