@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from core.model.user import User
 
 from core.utils.auth import decode_access_token
-from core.utils.errors import unauthorized_error, credential_error
+from core.utils.exceptions.errors import unauthorized_error, credential_error
 from core.utils.database import get_db
 
 

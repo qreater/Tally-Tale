@@ -7,7 +7,7 @@
 
 from sqlalchemy.orm import Session
 
-from core.utils.errors import not_found_error, conflict_error
+from core.utils.exceptions.errors import not_found_error, conflict_error
 from core.schema.user import UserUpdate
 from core.model.user import User, followers_association
 
