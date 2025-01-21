@@ -16,7 +16,11 @@ from os import getenv
 from core.model.user import User
 
 from core.utils.database import save_and_refresh
-from core.utils.errors import conflict_error, credential_error, not_found_error
+from core.utils.exceptions.errors import (
+    conflict_error,
+    credential_error,
+    not_found_error,
+)
 
 load_dotenv()
 
