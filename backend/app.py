@@ -18,6 +18,7 @@ from core.utils.exceptions.handler import ErrorHandlingMiddleware, api_error_han
 
 from api.auth import router as auth_router
 from api.user import router as user_router
+from api.story import router as story_router
 
 
 Base.metadata.create_all(bind=engine)
@@ -36,6 +37,7 @@ app.add_middleware(ErrorHandlingMiddleware)
 
 app.include_router(auth_router)
 app.include_router(user_router)
+app.include_router(story_router)
 
 
 @app.get("/")
